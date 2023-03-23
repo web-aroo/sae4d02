@@ -6,8 +6,6 @@ import router from './router';
 
 import { usePositionStore } from '@/stores/position';
 
-import './assets/main.css';
-
 const app = createApp(App);
 
 app.use(createPinia());
