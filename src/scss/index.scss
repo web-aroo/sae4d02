@@ -1,7 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import "./abstract/_variables";
 
 body{
   background-color: $darkBrown;
   font-family: $serif;
-  color: rebeccapurple;
 }
