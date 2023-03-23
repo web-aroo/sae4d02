@@ -12,10 +12,14 @@ module.exports = {
     },
     extend: {
       colors: {
-        'very-dark-brown': '#32281E',
-        'dark-brown': '#56412C',
+        'dark-grey': '#383A39',
+        'dark-brown': '#271D15',
+        'prune': '#413332',
         'light-brown': '#97714A',
       },
+      boxShadow: {
+        'custom': '0px 0px 8px 2px rgba(0, 0, 0, 0.25)',
+      }
     },
   },
 
