@@ -1,5 +1,8 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
+import I18NextVue from 'i18next-vue';
+import i18next from 'i18next';
+import './i18n';
 
 import App from './App.vue';
 import router from './router';
@@ -10,6 +13,7 @@ const app = createApp(App);
 
 app.use(createPinia());
 app.use(router);
+app.use(I18NextVue, { i18next });
 
 app.mount('#app');
 
