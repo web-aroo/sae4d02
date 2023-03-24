@@ -1,6 +1,6 @@
 <template>
 
-  <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 text-white">
+  <Dimmer>
     <div class="relative bg-dark-brown shadow-custom border border-light-brown border-2 p-8 m-7">
       <button class="absolute top-0 right-0 mt-2 mr-2" @click="$emit('close')">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#97714A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -13,12 +13,15 @@
         <slot></slot>
       </p>
     </div>
-  </div>
+  </Dimmer>
 
 </template>
 
 <script>
+import Dimmer from "@/components/Dimmer.vue";
+
 export default {
-  name: "HelpModal"
+  name: "HelpModal",
+  components: {Dimmer}
 }
 </script>
