@@ -16,7 +16,8 @@ i18next
           languages: {
             en: 'English',
             fr: 'French'
-          }
+          },
+          backButton: "back"
         }
       },
       fr: {
@@ -24,7 +25,8 @@ i18next
           languages: {
             en: 'Anglais',
             fr: 'Français'
-          }
+          },
+          backButton: "retour"
         }
       }
     }
