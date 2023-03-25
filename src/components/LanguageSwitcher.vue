@@ -10,14 +10,14 @@ console.log(i18next.language, i18next);
 
 <template>
   <button
-    class="rounded-full h-10 w-20 border-2 border-light-brown overflow-hidden relative"
+    class="rounded-full h-8 w-16 border-2 border-light-brown overflow-hidden relative"
     @click="i18next.changeLanguage(i18next.language === 'fr' ? 'en' : 'fr')"
   >
     <div
       :class="{
-        'absolute h-7 aspect-square bg-light-brown border border-black rounded-full top-1/2 -translate-y-1/2 left-1 transition-all z-10': true,
+        'absolute h-5 aspect-square bg-light-brown border border-black rounded-full top-1/2 -translate-y-1/2 left-1 transition-all z-10': true,
         'left-1': i18next.language === 'fr',
-        'left-11': i18next.language === 'en'
+        'left-9': i18next.language === 'en'
       }"
     ></div>
     <img

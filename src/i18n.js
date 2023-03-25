@@ -17,7 +17,7 @@ i18next
             en: 'English',
             fr: 'French'
           },
-          backButton: "back"
+          backButton: "Back"
         }
       },
       fr: {
@@ -26,7 +26,7 @@ i18next
             en: 'Anglais',
             fr: 'Français'
           },
-          backButton: "retour"
+          backButton: "Retour"
         }
       }
     }
