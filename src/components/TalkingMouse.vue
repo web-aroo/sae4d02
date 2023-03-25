@@ -44,7 +44,7 @@ let interval = setInterval(() => {
     closeable = true;
     clearInterval(interval);
   }
-},50);
+},100);
 
 function next(){
   if(closeable) emit("close");
