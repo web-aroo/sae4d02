@@ -21,7 +21,8 @@ i18next
           gabaritGame: {
             help: "Help",
             restart: "Restart"
-          }
+          },
+          home: "Start the adventure",
         }
       },
       fr: {
@@ -34,7 +35,8 @@ i18next
           gabaritGame: {
             help: "Aide",
             restart: "Recommencer"
-          }
+          },
+          home: "Démarrer l'aventure",
         }
       }
     }
