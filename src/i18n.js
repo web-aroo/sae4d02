@@ -17,7 +17,11 @@ i18next
             en: 'English',
             fr: 'French'
           },
-          backButton: "Back"
+          backButton: "Back",
+          gabaritGame: {
+            help: "Help",
+            restart: "Restart"
+          }
         }
       },
       fr: {
@@ -26,7 +30,11 @@ i18next
             en: 'Anglais',
             fr: 'Français'
           },
-          backButton: "Retour"
+          backButton: "Retour",
+          gabaritGame: {
+            help: "Aide",
+            restart: "Recommencer"
+          }
         }
       }
     }
