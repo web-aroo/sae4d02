@@ -2,17 +2,17 @@
 
   <header class="flex flex-row-reverse items-center justify-between p-4">
     <LanguageSwitcher></LanguageSwitcher>
-    <BackButton></BackButton>
+    <BackButton v-if="backButton"></BackButton>
   </header>
 
 </template>
 
-<script>
+<script setup>
 import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
 import BackButton from "@/components/BackButton.vue";
 
-export default {
-  name: "Header",
-  components: {BackButton, LanguageSwitcher}
-}
+defineProps({
+  backButton: Boolean
+});
+
 </script>
