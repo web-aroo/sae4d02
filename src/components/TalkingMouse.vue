@@ -40,11 +40,15 @@ const typewritedMsg = ref("");
 
 let interval = setInterval(() => {
   typewritedMsg.value += arrayMsg.shift() + " ";
+
+  let nAudio = Math.ceil(Math.random()*5);
+  new Audio("/sound/mouses/"+props.character+"/"+nAudio+".mp3").play();
+
   if(!arrayMsg.length){
     closeable = true;
     clearInterval(interval);
   }
-},100);
+},80);
 
 function next(){
   if(closeable) emit("close");
