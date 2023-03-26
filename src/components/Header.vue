@@ -1,6 +1,6 @@
 <template>
 
-  <header class="flex flex-row-reverse items-center justify-between p-4">
+  <header class="flex flex-row-reverse items-center justify-between">
     <LanguageSwitcher></LanguageSwitcher>
     <BackButton v-if="backButton"></BackButton>
   </header>
