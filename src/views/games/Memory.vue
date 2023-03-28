@@ -7,7 +7,8 @@ for(let i=0; i<6; i++){
   for(let j=0; j<2; j++){
     cards.value.push({
       index: i,
-      flipped: false
+      interacted: false,
+      matched: false
     });
   }
 }
@@ -23,6 +24,33 @@ function shuffle(array){
   }
 }
 
+let interactedCards = [];
+function update(card){
+
+  if(interactedCards.length >= 2) return;
+
+  if(card.interacted || card.matched) return;
+
+  card.interacted = true;
+  interactedCards.push(card);
+
+  if(interactedCards.length >= 2){
+
+    if(interactedCards[0].index === interactedCards[1].index){
+      interactedCards[0].matched = true;
+      interactedCards[1].matched = true;
+    }
+
+    setTimeout(() => {
+      interactedCards[0].interacted = false;
+      interactedCards[1].interacted = false;
+      interactedCards = [];
+    },1000)
+
+  }
+
+}
+
 </script>
 
 
@@ -32,8 +60,8 @@ function shuffle(array){
 
     <div class="grid grid-cols-3 sm:grid-cols-4 gap-2 p-4">
 
-      <div class="w-[4em] h-[7em] bg-be cursor-pointer bg-prune border-light-brown border-2" v-for="card in cards" :key="card" @click="card.flipped = !card.flipped">
-        <img :src='"/img/games/memory/"+card.index+".jpg"' class="object-cover w-full h-full" v-if="card.flipped">
+      <div class="w-[4em] h-[7em] bg-be cursor-pointer bg-prune border-light-brown border-2" v-for="card in cards" :key="card" @click="update(card)">
+        <img :src='"/img/games/memory/"+card.index+".jpg"' class="object-cover w-full h-full" v-if="card.interacted || card.matched">
       </div>
 
     </div>
