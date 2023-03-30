@@ -58,10 +58,18 @@ function update(card){
 
   <GabaritGame>
 
-    <div class="grid grid-cols-3 sm:grid-cols-4 gap-2 p-4">
+    <div class="Cards">
 
-      <div class="w-[4em] h-[7em] bg-be cursor-pointer bg-prune border-light-brown border-2" v-for="card in cards" :key="card" @click="update(card)">
-        <img :src='"/img/games/memory/"+card.index+".jpg"' class="object-cover w-full h-full" v-if="card.interacted || card.matched">
+      <div class="Card" v-for="card in cards" :key="card" @click="update(card)" :class="{flipped: card.interacted || card.matched}">
+
+        <div class="Card-front">
+          <img :src='"/img/games/memory/"+card.index+".jpg"'>
+        </div>
+
+        <div class="Card-back">
+          <img src="/img/games/memory/back.jpg">
+        </div>
+
       </div>
 
     </div>
@@ -72,10 +80,55 @@ function update(card){
 
 <style scoped lang="scss">
 
+  .Cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+  }
+
   .Card{
-    width: 2em;
-    height: 4em;
-    background-color: #413332;
+    width: 6em;
+    height: 10em;
+    border-radius: 0.25em;
+    position: relative;
+
+    &-front,
+    &-back{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: 0.5s;
+      backface-visibility: hidden;
+      border: solid 2px #97714A;
+      border-radius: .5em;
+      overflow: hidden;
+
+      > img{
+        object-fit: cover;
+      }
+
+    }
+
+    &-front{
+      transform: rotateY(180deg);
+    }
+
+    &-back{
+      background: #413332;
+    }
+
+    &.flipped{
+
+      & .Card-front{
+        transform: rotateY(0deg);
+      }
+
+      & .Card-back{
+        transform: rotateY(180deg);
+      }
+
+    }
+
   }
 
 </style>
