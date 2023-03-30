@@ -2,7 +2,9 @@
   <div class="flex flex-col justify-between h-full">
     <Header back-button></Header>
     <div class="grid place-items-center gap-3">
-      <slot></slot>
+      <div class="p-4">
+        <slot></slot>
+      </div>
       <div class="flex gap-3">
         <button class="py-4 px-8 bg-light-grey">
           {{t("gabaritGame.help")}}
