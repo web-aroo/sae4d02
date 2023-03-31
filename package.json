@@ -19,6 +19,7 @@
     "i18next": "^22.4.13",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-vue": "^2.1.1",
+    "party-js": "^2.2.0",
     "pinia": "^2.0.32",
     "postcss": "^8.4.21",
     "sass": "^1.59.3",

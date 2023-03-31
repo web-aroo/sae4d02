@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import Memory from "@/views/games/Memory.vue";
+import SlidingPuzzle from "@/views/games/SlidingPuzzle.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,6 +16,11 @@ const router = createRouter({
       name: 'memory',
       component: Memory
     },
+    {
+      path: '/games/2',
+      name: 'sliding-puzzle',
+      component: SlidingPuzzle
+    }
   ]
 });
 
