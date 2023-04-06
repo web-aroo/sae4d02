@@ -1,5 +1,9 @@
 <template>
-  <GabaritGame>
+  <GabaritGame
+      @reset="reset()"
+      :help='$t("games.slidingPuzzle.help")'
+      step="2"
+é  >
     <div class="game-board grid grid-cols-3 grid-rows-3 gap-1">
       <div
           v-for="(tile, index) in tiles"
@@ -26,35 +30,31 @@ export default {
   components: {GabaritGame},
   data() {
     return {
-      tiles: [
-        {id: 0, value: 1, isEmpty: false},
-        {id: 1, value: 2, isEmpty: false},
-        {id: 2, value: 3, isEmpty: false},
-        {id: 3, value: 4, isEmpty: false},
-        {id: 4, value: 5, isEmpty: false},
-        {id: 5, value: 6, isEmpty: false},
-        {id: 6, value: 7, isEmpty: false},
-        {id: 7, value: 8, isEmpty: false},
-        {id: 8, value: '', isEmpty: true},
-      ],
-      emptyTileIndex: 8,
+      tiles: [],
+      emptyTileIndex: null,
       boardSize: 3,
     };
   },
   created() {
-    this.shuffleTiles();
+    this.reset();
   },
   methods: {
-    shuffleTiles() {
-      const n = this.tiles.length;
-      for (let i = n - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        const temp = this.tiles[i];
-        this.tiles[i] = this.tiles[j];
-        this.tiles[j] = temp;
-      }
-      this.emptyTileIndex = this.tiles.findIndex((tile) => tile.isEmpty);
+
+    reset(){
+      this.tiles = [
+        {id: 1, value: 2, isEmpty: false},
+        {id: 2, value: 3, isEmpty: false},
+        {id: 5, value: 6, isEmpty: false},
+        {id: 0, value: 1, isEmpty: false},
+        {id: 8, value: '', isEmpty: true},
+        {id: 4, value: 5, isEmpty: false},
+        {id: 3, value: 4, isEmpty: false},
+        {id: 6, value: 7, isEmpty: false},
+        {id: 7, value: 8, isEmpty: false},
+      ];
+      this.emptyTileIndex = 4;
     },
+
     moveTile(tileIndex) {
       if (this.canMoveTile(tileIndex)) {
         const emptyTile = this.tiles[this.emptyTileIndex];

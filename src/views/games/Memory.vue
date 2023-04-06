@@ -1,19 +1,29 @@
 <script setup>
 import GabaritGame from "@/components/GabaritGame.vue";
 import {ref} from "vue";
+import {useTranslation} from "i18next-vue";
+
+const {t} = useTranslation();
 
 const cards = ref([]);
-for(let i=0; i<6; i++){
-  for(let j=0; j<2; j++){
-    cards.value.push({
-      index: i,
-      interacted: false,
-      matched: false
-    });
-  }
-}
+let interactedCards = [];
 
-shuffle(cards.value);
+reset();
+
+function reset(){
+  cards.value = [];
+  interactedCards = [];
+  for(let i=0; i<6; i++){
+    for(let j=0; j<2; j++){
+      cards.value.push({
+        index: i,
+        interacted: false,
+        matched: false
+      });
+    }
+  }
+  shuffle(cards.value);
+}
 
 // Mélange de Fisher-Yates
 // https://fr.wikipedia.org/wiki/M%C3%A9lange_de_Fisher-Yates
@@ -24,7 +34,6 @@ function shuffle(array){
   }
 }
 
-let interactedCards = [];
 function update(card){
 
   if(interactedCards.length >= 2) return;
@@ -42,6 +51,7 @@ function update(card){
     }
 
     setTimeout(() => {
+      if(interactedCards.length < 2) return;
       interactedCards[0].interacted = false;
       interactedCards[1].interacted = false;
       interactedCards = [];
@@ -56,7 +66,11 @@ function update(card){
 
 <template>
 
-  <GabaritGame>
+  <GabaritGame
+    @reset="reset()"
+    :help='t("games.memory.help")'
+    step="1"
+  >
 
     <div class="Cards">
 
