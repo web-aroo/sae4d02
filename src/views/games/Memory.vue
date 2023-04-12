@@ -2,6 +2,8 @@
 import GabaritGame from "@/components/GabaritGame.vue";
 import {ref} from "vue";
 import {useTranslation} from "i18next-vue";
+import Sound from "@/utils/sound";
+import Party from "@/utils/party";
 
 const {t} = useTranslation();
 
@@ -38,26 +40,44 @@ function update(card){
 
   if(interactedCards.length >= 2 || card.interacted || card.matched) return;
 
+  Sound.pickCard();
+
   card.interacted = true;
   interactedCards.push(card);
 
+  // Si deux cartes sont retournées
   if(interactedCards.length >= 2){
 
+    // Si les deux cartes sont les mêmes
     if(interactedCards[0].index === interactedCards[1].index){
       interactedCards[0].matched = true;
-      interactedCards[1].matched = true;
-    }
-
-    setTimeout(() => {
       interactedCards[0].interacted = false;
+      interactedCards[1].matched = true;
       interactedCards[1].interacted = false;
       interactedCards = [];
 
+      setTimeout(() => {
+        Sound.success();
+      },200)
+
       if(cards.value.every(card => card.matched === true)){
-        // Gagné !
+        setTimeout(() => {
+          Sound.win();
+          Party.play();
+
+          // Gagné !
+
+        },750)
       }
 
-    },750)
+    } else {
+      setTimeout(() => {
+        interactedCards[0].interacted = false;
+        interactedCards[1].interacted = false;
+        interactedCards = [];
+        Sound.dropCard();
+      },750);
+    }
 
   }
 

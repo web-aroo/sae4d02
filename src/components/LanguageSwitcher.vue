@@ -2,6 +2,7 @@
 import france from '../assets/france.png';
 import uk from '../assets/uk.png';
 import { useTranslation } from 'i18next-vue';
+import Sound from "@/utils/sound";
 
 const { t, i18next } = useTranslation();
 
@@ -11,7 +12,7 @@ console.log(i18next.language, i18next);
 <template>
   <button
     class="rounded-full h-8 w-16 border-2 border-light-brown overflow-hidden relative"
-    @click="i18next.changeLanguage(i18next.language === 'fr' ? 'en' : 'fr')"
+    @click="i18next.changeLanguage(i18next.language === 'fr' ? 'en' : 'fr'); Sound.button()"
   >
     <div
       :class="{

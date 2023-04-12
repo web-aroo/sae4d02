@@ -7,10 +7,10 @@
         <slot></slot>
       </div>
       <div class="flex gap-3">
-        <button class="py-4 px-8 bg-light-grey" @click="showHelp = true">
+        <button class="py-4 px-8 bg-light-grey" @click="showHelp = true; Sound.button()">
           {{t("gabaritGame.help")}}
         </button>
-        <button class="py-4 px-8 bg-prune" @click="emit('reset')">
+        <button class="py-4 px-8 bg-prune" @click="emit('reset'); Sound.button()">
           {{t("gabaritGame.restart")}}
         </button>
       </div>
@@ -31,6 +31,7 @@ import Header from "@/components/Header.vue";
 import {useTranslation} from "i18next-vue";
 import {ref} from "vue";
 import HelpModal from "@/components/HelpModal.vue";
+import Sound from "@/utils/sound";
 
 const {t} = useTranslation();
 
