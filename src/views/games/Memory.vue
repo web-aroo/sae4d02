@@ -36,9 +36,7 @@ function shuffle(array){
 
 function update(card){
 
-  if(interactedCards.length >= 2) return;
-
-  if(card.interacted || card.matched) return;
+  if(interactedCards.length >= 2 || card.interacted || card.matched) return;
 
   card.interacted = true;
   interactedCards.push(card);
@@ -51,11 +49,15 @@ function update(card){
     }
 
     setTimeout(() => {
-      if(interactedCards.length < 2) return;
       interactedCards[0].interacted = false;
       interactedCards[1].interacted = false;
       interactedCards = [];
-    },1000)
+
+      if(cards.value.every(card => card.matched === true)){
+        // Gagné !
+      }
+
+    },750)
 
   }
 
