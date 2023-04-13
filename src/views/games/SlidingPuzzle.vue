@@ -66,9 +66,9 @@ export default {
         this.tiles[this.emptyTileIndex] = movedTile;
         this.emptyTileIndex = tileIndex;
 
-        // Temporary
         if (this.isGameWon()) {
           Game.winFxAndRedirect("/dialogues/game1-end", this.$router);
+
         }
       }
     },
