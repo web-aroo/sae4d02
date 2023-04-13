@@ -219,7 +219,7 @@ const dialogues = [
         }
       }
     ],
-    nextEndpoint: '/'
+    nextEndpoint: '/end'
   }
 ];
 

@@ -5,7 +5,7 @@
 
       <h2 class="text-lg font-bold mb-4 text-center text-4xl">{{t("lock.title")}}</h2>
 
-      <div class="flex gap-4 bg-dark-grey p-6">
+      <div class="flex gap-4 bg-dark-grey p-6" v-if="locked">
           <div v-for="(digit, index) in digits" :key="digit" class="grid justify-center text-center gap-4">
               <button class="bg-light-grey text-3xl drop-shadow-md" @click="plus(index)">
                   +
@@ -18,6 +18,12 @@
               </button>
           </div>
       </div>
+      <div v-else>
+          <video src="/video/chest.mp4" autoplay>
+
+          </video>
+      </div>
+
 
       <button class="py-4 px-8 bg-light-brown" @click="verify()">
           {{ t("lock.button") }}
@@ -31,15 +37,14 @@
 import Header from "@/components/Header.vue";
 import {ref} from "vue";
 import {useTranslation} from "i18next-vue";
-import Party from "@/utils/party";
-import Sound from "@/utils/sound";
 import {useRouter} from "vue-router";
+import Game from "@/utils/game";
 
 const {t} = useTranslation();
 
 const digits = ref([0,0,0,0]);
 
-const unlocked = ref(false);
+const locked = ref(true);
 
 const router = useRouter();
 
@@ -55,17 +60,13 @@ function minus(index){
 
 function verify(){
 
-    if(unlocked.value) return;
+    if(!locked.value) return;
 
     const realCode = [1,4,3,8];
 
     if(digits.value.every((digit,i) => digit === realCode[i])){
-        unlocked.value = true;
-        Party.play();
-        Sound.win();
-        setTimeout(() => {
-            router.push("/dialogues/end");
-        },2000)
+        locked.value = false;
+        Game.winFxAndRedirect("/dialogues/end", router);
     }
 }
 
