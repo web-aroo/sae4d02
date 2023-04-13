@@ -31,6 +31,10 @@ i18next
             slidingPuzzle:{
               help: "The goal of this puzzle is to reconstitute the image by moving the different pieces of the mural. To move a piece, click on it."
             }
+          },
+          lock: {
+            title: "Chest",
+            button: "Try to unlock"
           }
         }
       },
@@ -54,6 +58,10 @@ i18next
             slidingPuzzle: {
               help: "Le but de ce puzzle est de reconstituer l'image en déplaçant les différentes pièces de la fresque. Pour déplacer une pièce, cliquez dessus."
             }
+          },
+          lock: {
+            title: "Coffre",
+            button: "Déverrouiller"
           }
         }
       }
