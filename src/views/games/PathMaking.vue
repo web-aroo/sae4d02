@@ -2,6 +2,9 @@
 import { onUnmounted, ref, watch } from 'vue';
 import GabaritGame from '@/components/GabaritGame.vue';
 import { indexes } from '@/const/indexes';
+import Game from '@/utils/game';
+import Sound from '@/utils/sound';
+import { useRouter } from 'vue-router';
 
 const randomNumbers = [5, 10];
 
@@ -45,6 +48,7 @@ function generateTrain() {
   const randomDirection = Math.floor(Math.random() * 2);
   const randomIndex = Math.floor(Math.random() * 2);
   const randomMaterial = ['wood', 'iron', 'wool', 'gold'][Math.floor(Math.random() * 4)];
+  Sound.tchooTchoo();
   cells.value[randomDirection === 0 ? randomNumbers[randomIndex] : 0][
     randomDirection === 0 ? 0 : randomNumbers[randomIndex]
   ] = {
@@ -109,6 +113,7 @@ function tick() {
         if (typeof nextCell === 'undefined' || nextCell.type === 'docking') {
           generateTrain();
           if (nextCell.material === cell.material) {
+            Sound.success();
             points.value++;
           } else {
             points.value = 0;
@@ -119,12 +124,18 @@ function tick() {
   }
 }
 
-const interval = setInterval(tick, 300);
+let interval = setInterval(tick, 300);
+
+const router = useRouter();
 
 watch(points, (newPoints) => {
+  clearInterval(interval);
   if (newPoints === 10) {
-    // bsahtek
-    points.value = 0;
+    Game.winFxAndRedirect('/dialogues/game3-end', router);
+  } else {
+    const newInterval = 150 * (2 - newPoints / 10);
+    console.log(newInterval);
+    interval = setInterval(tick, newInterval);
   }
 });
 
@@ -134,7 +145,10 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <GabaritGame>
+  <GabaritGame :step="3" :help="$t('games.pathmaking.help')">
+    <div class="text-center pb-4">
+      {{ $t('games.pathmaking.points') }}&nbsp;: {{ points }}&nbsp;/&nbsp;10
+    </div>
     <div class="w-full grid grid-cols-[repeat(16,minmax(0,1fr))]">
       <template v-for="(row, y) in cells" :key="row">
         <div
@@ -190,13 +204,17 @@ onUnmounted(() => {
         </div>
       </template>
     </div>
-    <div class="flex gap-1 items-center pt-2">
+    <div class="grid grid-cols-3 grid-rows-3 gap-1 pt-2">
       <button
         v-for="(toward, i) in possibleTowards"
         :key="toward"
         :class="{
-          'bg-amber-700 p-4 transition-opacity': true,
-          'opacity-50': toward !== towardsButton
+          'bg-amber-700 p-4 transition-opacity flex justify-center': true,
+          'opacity-50': toward !== towardsButton,
+          'col-start-2 row-start-1': toward === 'north',
+          'col-start-3 row-start-2': toward === 'east',
+          'col-start-2 row-start-3': toward === 'south',
+          'col-start-1 row-start-2': toward === 'west'
         }"
         @click="towardsButton = toward"
       >
@@ -216,7 +234,6 @@ onUnmounted(() => {
           <path d="M12 19V6M5 12l7-7 7 7" />
         </svg>
       </button>
-      <div>Points&nbsp;: {{ points }}&nbsp;/&nbsp;10</div>
     </div>
   </GabaritGame>
 </template>

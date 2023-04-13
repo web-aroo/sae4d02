@@ -30,6 +30,10 @@ i18next
             },
             slidingPuzzle: {
               help: 'The goal of this puzzle is to reconstitute the image by moving the different pieces of the mural. To move a piece, click on it.'
+            },
+            pathmaking: {
+              points: 'Points',
+              help: 'The goal of this game is to bring the trains in the right direction according to their color. You can change the switches at the intersections by clicking on the buttons down below.'
             }
           },
           map: {
@@ -71,6 +75,10 @@ i18next
             },
             slidingPuzzle: {
               help: "Le but de ce puzzle est de reconstituer l'image en déplaçant les différentes pièces de la fresque. Pour déplacer une pièce, cliquez dessus."
+            },
+            pathmaking: {
+              points: 'Points',
+              help: "Le but de ce jeu est d'amener les trains dans la bonne direction en fonction de leur couleur. Vous pouvez changer l'aiguillage des intersections en cliquant sur les boutons en bas."
             }
           },
           lock: {
