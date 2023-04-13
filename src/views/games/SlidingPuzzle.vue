@@ -68,7 +68,7 @@ export default {
 
         // Temporary
         if (this.isGameWon()) {
-          Game.winFxAndRedirect("/dialogues/game2-end", this.$router);
+          Game.winFxAndRedirect("/dialogues/game1-end", this.$router);
         }
       }
     },

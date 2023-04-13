@@ -65,7 +65,7 @@ function update(card){
 
       if(cards.value.every(card => card.matched === true)){
         setTimeout(() => {
-          Game.winFxAndRedirect("/dialogues/game1-end", router);
+          Game.winFxAndRedirect("/dialogues/game2-end", router);
         },750)
       }
 
