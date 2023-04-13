@@ -3,12 +3,15 @@ import GabaritGame from "@/components/GabaritGame.vue";
 import {ref} from "vue";
 import {useTranslation} from "i18next-vue";
 import Sound from "@/utils/sound";
-import Party from "@/utils/party";
+import Game from "@/utils/game";
+import {useRouter} from "vue-router";
 
 const {t} = useTranslation();
 
 const cards = ref([]);
 let interactedCards = [];
+
+const router = useRouter();
 
 reset();
 
@@ -62,11 +65,7 @@ function update(card){
 
       if(cards.value.every(card => card.matched === true)){
         setTimeout(() => {
-          Sound.win();
-          Party.play();
-
-          // Gagné !
-
+          Game.winFxAndRedirect("/dialogues/game1-end", router);
         },750)
       }
 

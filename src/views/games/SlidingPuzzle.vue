@@ -24,6 +24,8 @@
 
 <script>
 import GabaritGame from "@/components/GabaritGame.vue";
+import Game from "@/utils/game";
+import Sound from "@/utils/sound";
 
 export default {
   name: "SlidingPuzzle",
@@ -57,6 +59,7 @@ export default {
 
     moveTile(tileIndex) {
       if (this.canMoveTile(tileIndex)) {
+        Sound.slidePuzzle();
         const emptyTile = this.tiles[this.emptyTileIndex];
         const movedTile = this.tiles[tileIndex];
         this.tiles[tileIndex] = emptyTile;
@@ -65,7 +68,7 @@ export default {
 
         // Temporary
         if (this.isGameWon()) {
-          alert('bsahtek');
+          Game.winFxAndRedirect("/dialogues/game2-end", this.$router);
         }
       }
     },

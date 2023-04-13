@@ -5,7 +5,8 @@ const sounds = {
     pickCard: "games/memory/pick_card",
     dropCard: "games/memory/drop_card",
     success: "games/success",
-    win: "games/win"
+    win: "games/win",
+    slidePuzzle: "games/sliding-puzzle/slide_puzzle"
 };
 
 Object.entries(sounds).forEach(([key, value]) => {
