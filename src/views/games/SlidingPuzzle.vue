@@ -42,17 +42,17 @@ export default {
 
     reset(){
       this.tiles = [
+        {id: 6, value: 7, isEmpty: false},
+        {id: 3, value: 4, isEmpty: false},
+        {id: 8, value: '', isEmpty: true},
+        {id: 7, value: 8, isEmpty: false},
+        {id: 0, value: 1, isEmpty: false},
+        {id: 4, value: 5, isEmpty: false},
+        {id: 5, value: 6, isEmpty: false},
         {id: 1, value: 2, isEmpty: false},
         {id: 2, value: 3, isEmpty: false},
-        {id: 5, value: 6, isEmpty: false},
-        {id: 0, value: 1, isEmpty: false},
-        {id: 8, value: '', isEmpty: true},
-        {id: 4, value: 5, isEmpty: false},
-        {id: 3, value: 4, isEmpty: false},
-        {id: 6, value: 7, isEmpty: false},
-        {id: 7, value: 8, isEmpty: false},
       ];
-      this.emptyTileIndex = 4;
+      this.emptyTileIndex = 2;
     },
 
     moveTile(tileIndex) {
