@@ -24,11 +24,8 @@ if (!('geolocation' in navigator)) {
   navigator.geolocation.watchPosition(
     (newPosition) => {
       store.position.value = newPosition;
-      console.log(store);
     },
-    (error) => {
-      console.error(error);
-    },
+    null,
     {
       enableHighAccuracy: true,
       timeout: 10000,

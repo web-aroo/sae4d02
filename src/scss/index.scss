@@ -8,3 +8,11 @@ body{
   font-family: $serif;
   color: white;
 }
+
+.maplibregl-popup-content {
+  background-color: $veryDarkBrown !important;
+  color: white;
+}
+.maplibregl-popup-tip {
+  display: none;
+}
