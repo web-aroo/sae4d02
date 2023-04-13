@@ -26,8 +26,8 @@ const dialogues = [
       {
         character: 'joseph',
         text: {
-          en: "I'll get the second digit at the *Place de la paix*. I remember the place well. It's where we used to go for ice cream.",
-          fr: "Je vais chercher le deuxième chiffre à la *Place de la paix*. Je me souviens bien de l'endroit. C'est là que nous allions pour prendre un glace."
+          en: "I'll get the second digit at the Place de la Réunion. I remember the place well. It's where we used to go for ice cream.",
+          fr: "Je vais chercher le deuxième chiffre à la Place de la Réunion. Je me souviens bien de l'endroit. C'est là que nous allions pour prendre un glace."
         }
       },
       {

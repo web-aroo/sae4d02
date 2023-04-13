@@ -5,6 +5,7 @@ import MapView from '@/views/MapView.vue';
 import TalkingMousesView from '@/views/TalkingMousesView.vue';
 import Memory from '@/views/games/Memory.vue';
 import SlidingPuzzle from '@/views/games/SlidingPuzzle.vue';
+import PathMaking from '@/views/games/PathMaking.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,6 +40,11 @@ const router = createRouter({
       path: '/games/2',
       name: 'memory',
       component: Memory
+    },
+    {
+      path: '/games/3',
+      name: 'pathmaking',
+      component: PathMaking
     }
   ]
 });
