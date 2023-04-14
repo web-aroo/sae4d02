@@ -22,7 +22,8 @@ export default defineConfig({
         ],
         background_color: '#271D15'
       },
-      includeAssets: ['img/**', 'sound/**', 'video/*']
+      includeAssets: ['img/**', 'sound/**', 'video/*'],
+      registerType: "autoUpdate"
     }),
     vue()
   ],

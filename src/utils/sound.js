@@ -14,10 +14,10 @@ const audio = new Audio();
 
 Object.entries(sounds).forEach(([key, value]) => {
     Sound[key] = function(){
-        audio.pause();
-        audio.currentTime = 0;
-        audio.src = "/sound/"+value+".mp3";
-        audio.play();
+        // audio.pause();
+        // audio.currentTime = 0;
+        // audio.src = "/sound/"+value+".mp3";
+        // audio.play();
     }
 })
 

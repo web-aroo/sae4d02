@@ -11,8 +11,8 @@ const dialogues = [
       },
       {
         text: {
-          en: "Each of you will receive a letter with a discrete mission to find a part of the code needed to unlock the chest. The mother will find the first digit, at my favourite street art of Mulhouse. The father will get the second digit at the *Place de la Réunion*. The son's mission is to locate the third digit, hidden nearby the safe’s location.",
-          fr: "Chacun d'entre vous recevra une lettre avec une mission discrète pour trouver une partie du code nécessaire pour déverrouiller le coffre. La mère trouvera le premier chiffre, dans mon street art préféré de Mulhouse. Le père trouvera le deuxième chiffre à la *Place de la Réunion*. La mission du fils est de trouver le troisième chiffre, caché à proximité de l'emplacement du coffre."
+          en: `Each of you will receive a letter with a discrete mission to find a part of the code needed to unlock the chest. The mother will find the first digit, at my favourite street art of Mulhouse. The father will get the second digit at the "Place de la Réunion". The son's mission is to locate the third digit, hidden nearby the safe’s location.`,
+          fr: "Chacun d'entre vous recevra une lettre avec une mission discrète pour trouver une partie du code nécessaire pour déverrouiller le coffre. La mère trouvera le premier chiffre, dans mon street art préféré de Mulhouse. Le père trouvera le deuxième chiffre à la Place de la Réunion. La mission du fils est de trouver le troisième chiffre, caché à proximité de l'emplacement du coffre."
         },
         character: 'mulin'
       },
