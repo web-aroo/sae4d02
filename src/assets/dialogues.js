@@ -4,6 +4,27 @@ const dialogues = [
     dialogues: [
       {
         text: {
+          en: "Dear Family, If you are reading this, it means that I have passed away, and it's time for you to learn about the secret that I have been keeping for years. I have left a chest at the Mulhouse train station that contains memories that I have collected over the years. To unlock it, you need to follow a series of clues that I have left for you.",
+          fr: "Chère famille, Si vous lisez ceci, c'est que je suis décédé et qu'il est temps pour vous de connaître le secret que j'ai gardé pendant des années. J'ai laissé à la gare de Mulhouse un coffre qui contient les souvenirs que j'ai collectés au fil des années. Pour le déverrouiller, vous devez suivre une série d'indices que j'ai laissés pour vous."
+        },
+        character: 'mulin'
+      },
+      {
+        text: {
+          en: "Each of you will receive a letter with a discrete mission to find a part of the code needed to unlock the chest. The mother will find the first digit, at my favourite street art of Mulhouse. The father will get the second digit at the *Place de la Réunion*. The son's mission is to locate the third digit, hidden nearby the safe’s location.",
+          fr: "Chacun d'entre vous recevra une lettre avec une mission discrète pour trouver une partie du code nécessaire pour déverrouiller le coffre. La mère trouvera le premier chiffre, dans mon street art préféré de Mulhouse. Le père trouvera le deuxième chiffre à la *Place de la Réunion*. La mission du fils est de trouver le troisième chiffre, caché à proximité de l'emplacement du coffre."
+        },
+        character: 'mulin'
+      },
+      {
+        text: {
+          en: "Remember, this is a family mission, and you must work together to solve the clues and unlock the safe. The memories inside are precious, and they will help you understand our family's past and the sacrifices that I have made for all of you. Good luck on your mission, and I love you all. Grandpa",
+          fr: "N'oubliez pas qu'il s'agit d'une mission familiale et que vous devez travailler ensemble pour résoudre les indices et déverrouiller le coffre-fort. Les souvenirs qu'il contient sont précieux et vous aideront à comprendre le passé de notre famille et les sacrifices que j'ai faits pour vous tous. Bonne chance pour votre mission et je vous aime tous. Grand-père"
+        },
+        character: 'mulin'
+      },
+      {
+        text: {
           en: "Oh my god, I can't believe this. Grandpa left a secret chest for us to find. He was always full of surprises.",
           fr: 'Oh mon dieu, je ne peux pas y croire. Grand-père nous a laissé un coffre secret à trouver. Il était toujours plein de surprises.'
         },

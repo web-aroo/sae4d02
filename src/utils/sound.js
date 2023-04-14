@@ -10,10 +10,15 @@ const sounds = {
   tchooTchoo: 'games/pathmaking/tchou'
 };
 
+const audio = new Audio();
+
 Object.entries(sounds).forEach(([key, value]) => {
-  Sound[key] = function () {
-    new Audio('/sound/' + value + '.mp3').play();
-  };
-});
+    Sound[key] = function(){
+        audio.pause();
+        audio.currentTime = 0;
+        audio.src = "/sound/"+value+".mp3";
+        audio.play();
+    }
+})
 
 export default Sound;
